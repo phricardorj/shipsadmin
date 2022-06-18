@@ -14,29 +14,3 @@
 - [Lombok](https://projectlombok.org/)
 
 ## 🗺️ API Documentation
-
-### Customer
-
-1. (POST) `/api/client` - CREATE / Register a new Customer
-```json
-{  
-  "name": "Pedro Ricardo",
-  "document": "12329278383",
-  "country": "Brazil"
-}
-```
-
-### Container
-
-1. (GET) `/container` - GET Container by {containerId}
-2. (POST) `/container` - CREATE / Register a new Container
-```json
-{  
-    "identifier": "60410725BR",
-    "category": "Import",
-    "from": "Brazil",
-    "to": "China"
-}
-```
-3. (PUT) `/container` - EDIT specific container by its {containerId}
-4. (DELETE) `/container` - DELETE specific container by its {containerId}
