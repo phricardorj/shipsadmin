@@ -24,12 +24,6 @@ public class CustomerModel {
         this.to = to;
     }
 
-    @Getter
-    private static List<CustomerModel> customers = new ArrayList<>();
-
-    public static void add(CustomerModel customerModel){
-        customers.add(customerModel);
-    }
 
     public static CustomerModel converter(CustomerDTO customerDTO){
         return new CustomerModel(customerDTO.getIdentifier(), customerDTO.getCategory(), customerDTO.getFrom(), customerDTO.getTo());
