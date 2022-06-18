@@ -23,4 +23,8 @@ public class CustomerService {
         log.info("Returning Customer by identifier!");
         return Objects.requireNonNull(customers.stream().filter(customerModel -> customerModel.getIdentifier().equals(identifier)).findFirst().orElse(null));
     }
+
+    public static Boolean remove(CustomerModel customer){
+        return customers.remove(customer);
+    }
 }

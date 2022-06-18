@@ -26,8 +26,14 @@ public class CustomerController {
     }
 
     @Get("/{identifier}")
-    public CustomerModel selectCustomer(@PathVariable UUID identifier){
+    public CustomerModel selectCustomer(@PathVariable UUID identifier) throws NullPointerException {
         return CustomerService.selectByIdentifier(identifier);
+    }
+
+    @Delete("/{identifier}")
+    public Boolean deleteCustomer(@PathVariable UUID identifier){
+        CustomerModel customer = CustomerService.selectByIdentifier(identifier);
+        return CustomerService.remove(customer);
     }
 
 }
