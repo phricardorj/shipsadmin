@@ -10,22 +10,19 @@ import java.util.UUID;
 
 @Setter @Getter
 public class CustomerModel {
-    private UUID id;
-    private String identifier;
+    private UUID identifier;
     private String category;
     private String from;
     private String to;
 
-    public CustomerModel(String identifier, String category, String from, String to) {
-        this.id = UUID.randomUUID();
-        this.identifier = identifier;
+    public CustomerModel(String category, String from, String to) {
+        this.identifier = UUID.randomUUID();
         this.category = category;
         this.from = from;
         this.to = to;
     }
 
-
     public static CustomerModel converter(CustomerDTO customerDTO){
-        return new CustomerModel(customerDTO.getIdentifier(), customerDTO.getCategory(), customerDTO.getFrom(), customerDTO.getTo());
+        return new CustomerModel(customerDTO.getCategory(), customerDTO.getFrom(), customerDTO.getTo());
     }
 }
