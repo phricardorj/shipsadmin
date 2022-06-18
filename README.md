@@ -1,21 +1,42 @@
-## Micronaut 3.5.1 Documentation
+![shipsadmin by @phricardorj](https://i.imgur.com/RXTBxum.png "shipsadmin")
 
-- [User Guide](https://docs.micronaut.io/3.5.1/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.5.1/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.5.1/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+🚢 API for ship administration and logistics in Java
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
-## Feature http-client documentation
+![Version](https://img.shields.io/badge/Version-1.0-green "Version")
+![Stars](https://img.shields.io/github/stars/phricardorj/shipsadmin?style=social "Stars")
+![Contributors](https://img.shields.io/github/contributors/phricardorj/shipsadmin?color=#00fd13 "Contributors")
 
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
+## ⚙️ Technologies
 
+- [Java](https://www.java.com/)
+- [Micronaut](https://micronaut.io/)
+- [Gradle](https://gradle.org/)
+- [Lombok](https://projectlombok.org/)
 
-## Feature lombok documentation
+## 🗺️ API Documentation
 
-- [Micronaut Project Lombok documentation](https://docs.micronaut.io/latest/guide/index.html#lombok)
+### Customer
 
-- [https://projectlombok.org/features/all](https://projectlombok.org/features/all)
+1. (POST) `/api/client` - CREATE / Register a new Customer
+```json
+{  
+  "name": "Pedro Ricardo",
+  "document": "12329278383",
+  "country": "Brazil"
+}
+```
 
+### Container
 
+1. (GET) `/container` - GET Container by {containerId}
+2. (POST) `/container` - CREATE / Register a new Container
+```json
+{  
+    "identifier": "60410725BR",
+    "category": "Import",
+    "from": "Brazil",
+    "to": "China"
+}
+```
+3. (PUT) `/container` - EDIT specific container by its {containerId}
+4. (DELETE) `/container` - DELETE specific container by its {containerId}
