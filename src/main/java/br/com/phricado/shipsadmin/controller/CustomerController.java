@@ -3,10 +3,12 @@ package br.com.phricado.shipsadmin.controller;
 import br.com.phricado.shipsadmin.dto.CustomerDTO;
 import br.com.phricado.shipsadmin.model.CustomerModel;
 import br.com.phricado.shipsadmin.service.CustomerService;
+import io.micronaut.http.HttpResponse;
 import io.micronaut.http.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Controller("/api/customer")
@@ -26,8 +28,9 @@ public class CustomerController {
     }
 
     @Get("/{identifier}")
-    public CustomerModel selectCustomer(@PathVariable UUID identifier) {
-        return CustomerService.selectByIdentifier(identifier);
+    public HttpResponse<?> selectCustomer(@PathVariable UUID identifier) {
+        CustomerModel customerModel = CustomerService.selectByIdentifier(identifier);
+        return HttpResponse.ok(customerModel);
     }
 
     @Delete("/{identifier}")
