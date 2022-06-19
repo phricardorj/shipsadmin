@@ -1,6 +1,7 @@
 package br.com.phricado.shipsadmin.controller;
 
 import br.com.phricado.shipsadmin.dto.CustomerDTO;
+import br.com.phricado.shipsadmin.exceptions.CustomException;
 import br.com.phricado.shipsadmin.model.CustomerModel;
 import br.com.phricado.shipsadmin.service.CustomerService;
 import io.micronaut.http.HttpResponse;
@@ -28,9 +29,13 @@ public class CustomerController {
     }
 
     @Get("/{identifier}")
-    public HttpResponse<?> selectCustomer(@PathVariable UUID identifier) {
-        CustomerModel customerModel = CustomerService.selectByIdentifier(identifier);
-        return HttpResponse.ok(customerModel);
+    public HttpResponse<?> selectCustomer(@PathVariable UUID identifier) throws CustomException {
+        try {
+            CustomerModel customerModel = CustomerService.selectByIdentifier(identifier);
+            return HttpResponse.ok(customerModel);
+        } catch (NullPointerException e) {
+            throw new CustomException("Identifier entered is invalid or non-existent");
+        }
     }
 
     @Delete("/{identifier}")
