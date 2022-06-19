@@ -26,7 +26,7 @@ public class CustomerController {
     }
 
     @Get("/{identifier}")
-    public CustomerModel selectCustomer(@PathVariable UUID identifier) throws NullPointerException {
+    public CustomerModel selectCustomer(@PathVariable UUID identifier) {
         return CustomerService.selectByIdentifier(identifier);
     }
 
